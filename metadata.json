@@ -1,0 +1,8 @@
+{
+  "name": "Forge AI: Restaurant Operations Platform",
+  "description": "The premium AI operations assistant that handles guest messaging via WhatsApp and automates restaurant inventory and food margins.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
