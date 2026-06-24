@@ -1,29 +1,44 @@
 import { useEffect, useState } from 'react';
 
+export interface ScrambleChar {
+  finalChar: string;
+  currentChar: string;
+}
+
 export function useTextScramble(finalText: string, duration: number = 1500) {
-  const [text, setText] = useState('');
+  const [chars, setChars] = useState<ScrambleChar[]>([]);
 
   useEffect(() => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const scramblePool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const finalChars = finalText.split('');
+    
+    // Initialize
+    setChars(
+      finalChars.map((char) => ({
+        finalChar: char,
+        currentChar: char === ' ' ? ' ' : scramblePool[Math.floor(Math.random() * scramblePool.length)],
+      }))
+    );
+
     let iteration = 0;
     const maxIterations = finalText.length * 3;
     const stepDuration = 30; // ms
 
     const interval = setInterval(() => {
-      setText(
-        finalText
-          .split('')
-          .map((char, i) => {
-            if (char === ' ') return ' ';
-            if (i < iteration / 3) return char;
-            return chars[Math.floor(Math.random() * chars.length)];
-          })
-          .join('')
+      setChars(
+        finalChars.map((char, i) => {
+          if (char === ' ') return { finalChar: ' ', currentChar: ' ' };
+          if (i < iteration / 3) return { finalChar: char, currentChar: char };
+          return {
+            finalChar: char,
+            currentChar: scramblePool[Math.floor(Math.random() * scramblePool.length)],
+          };
+        })
       );
       
       if (iteration >= maxIterations) {
         clearInterval(interval);
-        setText(finalText);
+        setChars(finalChars.map((char) => ({ finalChar: char, currentChar: char })));
       }
       iteration++;
     }, stepDuration);
@@ -31,5 +46,5 @@ export function useTextScramble(finalText: string, duration: number = 1500) {
     return () => clearInterval(interval);
   }, [finalText, duration]);
 
-  return text;
+  return chars;
 }

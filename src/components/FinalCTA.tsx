@@ -46,7 +46,12 @@ export function FinalCTA({ lang }: FinalCTAProps) {
         </p>
 
         <div className="flex flex-col items-center gap-6 w-full mb-10">
-          <MagneticButton className="h-[52px] px-8 bg-amber-primary text-black font-jakarta font-black text-sm rounded-xl shadow-[0_4px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_4px_30px_rgba(245,158,11,0.4)] transition-all w-full sm:w-auto cursor-pointer">
+          <MagneticButton 
+            href="https://remix-forge-ai-184760636045.europe-west2.run.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-[52px] px-8 bg-amber-primary text-black font-jakarta font-black text-sm rounded-xl shadow-[0_4px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_4px_30px_rgba(245,158,11,0.4)] transition-all w-full sm:w-auto cursor-pointer"
+          >
             {t.btnTrial}
           </MagneticButton>
 

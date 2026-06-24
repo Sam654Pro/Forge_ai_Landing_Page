@@ -111,7 +111,12 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <button className="font-jakarta font-medium text-[15px] text-ink-medium hover:text-amber-primary transition-colors">
                 {t.signIn}
               </button>
-              <MagneticButton className="bg-grad-amber text-black font-jakarta font-extrabold text-[15px] px-6 py-3 rounded-xl shadow-[0_0_40px_rgba(245,158,11,0.25)] hover:shadow-[0_0_50px_rgba(245,158,11,0.4)] group flex items-center gap-2">
+              <MagneticButton 
+                href="https://remix-forge-ai-184760636045.europe-west2.run.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-grad-amber text-black font-jakarta font-extrabold text-[15px] px-6 py-3 rounded-xl shadow-[0_0_40px_rgba(245,158,11,0.25)] hover:shadow-[0_0_50px_rgba(245,158,11,0.4)] group flex items-center gap-2"
+              >
                 {t.trial}
                 <ChevronRight className="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
               </MagneticButton>
@@ -184,12 +189,15 @@ export function Navigation({ lang, setLang }: NavigationProps) {
               <button className="w-full bg-white/5 border border-white/10 text-white font-jakarta font-bold text-base py-3.5 rounded-xl">
                 {t.signIn}
               </button>
-              <button 
+              <a 
+                href="https://remix-forge-ai-184760636045.europe-west2.run.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="w-full bg-grad-amber text-black font-jakarta font-bold text-base py-3.5 rounded-xl text-center"
+                className="w-full bg-grad-amber text-black font-jakarta font-bold text-base py-3.5 rounded-xl text-center block"
               >
                 {t.trial}
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

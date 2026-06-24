@@ -160,7 +160,14 @@ export function Hero({ lang }: HeroProps) {
         {/* Headline - Significantly reduced sizing to be extremely sleek */}
         <h1 className="font-syne font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.03em] text-ink-black mb-6 select-none">
           <span className="block mb-2">{t.h1Line1}</span>
-          <span className="block text-amber-primary">{line2Scrambled}</span>
+          <span className="inline-flex justify-center flex-wrap text-amber-primary">
+            {line2Scrambled.map((item, idx) => (
+              <span key={idx} className="relative inline-block">
+                <span className="opacity-0 pointer-events-none select-none">{item.finalChar === ' ' ? '\u00A0' : item.finalChar}</span>
+                <span className="absolute inset-0 flex items-center justify-center">{item.currentChar === ' ' ? '\u00A0' : item.currentChar}</span>
+              </span>
+            ))}
+          </span>
         </h1>
 
         {/* Subheadline - Reduced sizing and sleek font */}
@@ -170,7 +177,12 @@ export function Hero({ lang }: HeroProps) {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-10">
-          <MagneticButton className="h-14 px-8 bg-grad-amber text-black font-jakarta font-extrabold text-[15px] rounded-xl shadow-[0_8px_32px_rgba(245,158,11,0.3)] hover:shadow-[0_12px_40px_rgba(245,158,11,0.4)] group flex items-center justify-center gap-2 w-full sm:w-auto transition-transform duration-300">
+          <MagneticButton 
+            href="https://remix-forge-ai-184760636045.europe-west2.run.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-14 px-8 bg-grad-amber text-black font-jakarta font-extrabold text-[15px] rounded-xl shadow-[0_8px_32px_rgba(245,158,11,0.3)] hover:shadow-[0_12px_40px_rgba(245,158,11,0.4)] group flex items-center justify-center gap-2 w-full sm:w-auto transition-transform duration-300"
+          >
             {t.btnTrial}
             <span className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300">→</span>
           </MagneticButton>

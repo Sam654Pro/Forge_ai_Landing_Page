@@ -133,6 +133,7 @@ export function Pricing({ lang }: PricingProps) {
              isFeatured={false}
              btnText={t.cardCTA}
              monthLabel={t.monthLabel}
+             href="https://remix-forge-ai-184760636045.europe-west2.run.app"
           />
 
           {/* Pro Plan */}
@@ -145,6 +146,7 @@ export function Pricing({ lang }: PricingProps) {
              btnText={t.cardCTA}
              popularLabel={t.mostPopular}
              monthLabel={t.monthLabel}
+             href="https://remix-forge-ai-184760636045.europe-west2.run.app"
           />
 
           {/* Business Plan */}
@@ -156,6 +158,7 @@ export function Pricing({ lang }: PricingProps) {
              isFeatured={false}
              btnText={t.cardCTA}
              monthLabel={t.monthLabel}
+             href="https://remix-forge-ai-184760636045.europe-west2.run.app"
           />
 
         </div>
@@ -176,7 +179,7 @@ export function Pricing({ lang }: PricingProps) {
   );
 }
 
-function PricingCard({ name, desc, price, features, isFeatured, btnText, popularLabel, monthLabel }: any) {
+function PricingCard({ name, desc, price, features, isFeatured, btnText, popularLabel, monthLabel, href }: any) {
   return (
     <div className={`relative w-full rounded-[24px] p-8 md:p-10 flex flex-col justify-between transition-all duration-300 ${isFeatured ? 'bg-neutral-900 text-white border-2 border-amber-primary shadow-[0_10px_40px_rgba(245,158,11,0.15)] md:scale-105 z-10' : 'bg-neutral-900/60 border border-white/10 text-white hover:border-amber-primary/30'}`}>
       
@@ -195,7 +198,12 @@ function PricingCard({ name, desc, price, features, isFeatured, btnText, popular
           <span className={`font-dm text-xs sm:text-sm ${isFeatured ? 'text-zinc-400' : 'text-zinc-500'}`}>{monthLabel}</span>
         </div>
 
-        <MagneticButton className={`w-full py-3.5 rounded-xl font-jakarta font-black text-sm mb-8 transition-colors ${isFeatured ? 'bg-amber-primary text-black hover:bg-amber-warm shadow-[0_4px_20px_rgba(245,158,11,0.3)]' : 'bg-neutral-950 border border-white/10 text-white hover:border-amber-primary'}`}>
+        <MagneticButton 
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`w-full py-3.5 rounded-xl font-jakarta font-black text-sm mb-8 transition-colors ${isFeatured ? 'bg-amber-primary text-black hover:bg-amber-warm shadow-[0_4px_20px_rgba(245,158,11,0.3)]' : 'bg-neutral-950 border border-white/10 text-white hover:border-amber-primary'}`}
+        >
           {btnText}
         </MagneticButton>
 
